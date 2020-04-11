@@ -8,6 +8,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   providedIn: 'root'
 })
 export class CommonsService {
+
+  public estadosMexico : any[] = [];
+
   Common_CurrentModal: HTMLIonModalElement;
   global: HTMLIonLoadingElement;
 

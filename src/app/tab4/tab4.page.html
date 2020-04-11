@@ -14,6 +14,26 @@
     </ion-row>
   </ion-grid>
 
-  
+  <ion-list class="ion-padding">
+
+      <ion-item lines='full'>
+        <ion-label > Estado </ion-label>
+        <ion-label class="ion-text-end"> Casos </ion-label>
+      </ion-item>
+
+    <ion-item lines='full' *ngFor='let estado of commons.estadosMexico; let i = index'>
+      <ion-label class="ion-text-wrap">
+
+         <ion-text color='primary'> {{i+1}} </ion-text> &nbsp; {{estado.e}}
+
+       </ion-label>
+      <ion-label class="ion-text-end"> {{estado.t}} </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
 
 </ion-content>

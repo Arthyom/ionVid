@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MdlGlobalModule } from './components/globals/mdl-global.module';
 import { HttpClientModule } from '@angular/common/http';
-import { TrasnNamePipe } from './pipes/globals/trasn-name.pipe';
 import { GlobalPipesModule } from './pipes/globals/global-pipes.module';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';

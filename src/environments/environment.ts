@@ -11,7 +11,10 @@ export const environment = {
   xHostCov : "covid-193.p.rapidapi.com",
   xKeyCov  : "c4137d0ff2mshec095e74217f02ep1903e2jsnd72afb080721" ,
   urlCov   : "https://covid-193.p.rapidapi.com/",
-  urlTrans : "https://restcountries.eu/rest/v2/name/"
+  urlTrans : "https://restcountries.eu/rest/v2/name/",
+
+
+  urlMXStates: "https://www.unionguanajuato.mx/articulo/2020/04/10/cultura/casos-de-coronavirus-en-mexico-por-estado-estadisticas-covid-19"
 
 };
 

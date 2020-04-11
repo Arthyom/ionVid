@@ -9,7 +9,7 @@ import { CmpmapmexComponent } from '../components/globals/cmpmapmex/cmpmapmex.co
 })
 export class Tab4Page implements OnInit {
 
-  constructor( private commons : CommonsService ) { }
+  constructor( public commons : CommonsService ) { }
 
   ngOnInit(
 
