@@ -1,0 +1,55 @@
+<app-cmpclosemodalheader [titulo]='( (infoData.country_name | trasnName) | async ) || infoData.country_name '>
+</app-cmpclosemodalheader>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <br>
+
+      <ion-label>
+        <h3>Casos totales</h3>
+        <p>{{ infoDataDate.total_cases }}</p>
+      </ion-label>
+
+      <br>
+
+      <ion-label>
+        <h3>Casos activos</h3>
+        <p>{{ infoDataDate.active_cases }}</p>
+      </ion-label>
+
+      <br>
+
+      <ion-label>
+        <h3>Fallecimientos totales</h3>
+        <p>{{ infoDataDate.total_deaths }}</p>
+      </ion-label>
+
+      <br>
+
+      <ion-label>
+        <h3>Recuperados</h3>
+        <p>{{ infoDataDate.total_recovered }}</p>
+      </ion-label>
+
+      <br>
+
+      <ion-label>
+        <h3>Casos criticos</h3>
+        <p>{{ infoDataDate.serious_critical }}</p>
+      </ion-label>
+
+      <br>
+
+    </ion-card-content>
+
+
+
+
+
+  </ion-card>
+
+</ion-content>

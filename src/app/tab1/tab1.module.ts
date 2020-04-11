@@ -5,9 +5,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { MdlGlobalModule } from '../components/globals/mdl-global.module';
 
 @NgModule({
   imports: [
+    MdlGlobalModule,
     IonicModule,
     CommonModule,
     FormsModule,

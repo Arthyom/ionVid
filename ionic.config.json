@@ -1,5 +1,7 @@
 {
   "name": "ionVid20",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

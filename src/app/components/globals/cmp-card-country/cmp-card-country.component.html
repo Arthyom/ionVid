@@ -1,0 +1,14 @@
+<ion-list class="ion-padding">
+  <ion-item
+
+  *ngFor='let c of dataCountry | slice:1; let i = index' detail (click)='abrirModal( c )'
+
+  >
+    <ion-label >
+      <ion-text color='primary' class="ion-text-wrap" >{{i+1}} &nbsp;</ion-text>
+      {{ ( (c.country_name | trasnName) | async ) || c.country_name }}
+    </ion-label>
+
+    <ion-label class="ion-text-end"> {{c.cases}} casos </ion-label>
+  </ion-item>
+</ion-list>

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  xHostMon : "coronavirus-monitor.p.rapidapi.com",
+  xKeyMon  : "c4137d0ff2mshec095e74217f02ep1903e2jsnd72afb080721",
+  urlMon   : "https://coronavirus-monitor.p.rapidapi.com/coronavirus/",
+
+  xHostCov : "covid-193.p.rapidapi.com",
+  xKeyCov  : "c4137d0ff2mshec095e74217f02ep1903e2jsnd72afb080721" ,
+  urlCov   : "https://covid-193.p.rapidapi.com/",
+  urlTrans : "https://restcountries.eu/rest/v2/name/"
+
 };
 
 /*

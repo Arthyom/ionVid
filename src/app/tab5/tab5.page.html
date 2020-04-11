@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tab5</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class='ion-padding'>
+    <ion-item-group>
+  <ion-item-divider>
+    <ion-label>
+      <h1>API's</h1>
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item
+  (click)="abrirNavegador( 'https://rapidapi.com/api-sports/api/covid-193?endpoint=apiendpoint_2feca6f0-0f58-40b7-9196-98c45c7d5083' )"
+  >
+    <ion-label>COVID-19</ion-label>
+  </ion-item>
+  <ion-item
+  (click)="abrirNavegador( 'https://rapidapi.com/astsiatsko/api/coronavirus-monitor?endpoint=apiendpoint_1f6e9f84-d051-4d4d-9106-8bbeb3f162c4' )"
+  >
+    <ion-label>Coronavirus monitor</ion-label>
+  </ion-item>
+</ion-item-group>
+
+<br><br>
+
+<ion-item-group>
+<ion-item-divider>
+<ion-label>
+  <h1>Webs</h1>
+</ion-label>
+</ion-item-divider>
+
+<ion-item  (click)="abrirNavegador( 'https://bing.com/covid' )">
+<ion-label>Bing</ion-label>
+</ion-item>
+
+<ion-item (click)="abrirNavegador( 'https://ncov.sinave.gob.mx/mapa.aspx' )">
+<ion-label>Secretaría de salud. México</ion-label>
+</ion-item>
+
+
+<ion-item  (click)="abrirNavegador( 'https://github.com/Arthyom/ionVid' )">
+<ion-label>Repositorio </ion-label>
+</ion-item>
+
+</ion-item-group>
+</ion-list>
+
+</ion-content>
