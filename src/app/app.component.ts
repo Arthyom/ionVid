@@ -26,8 +26,12 @@ export class AppComponent {
     this.platform.ready().then( async() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      const dom = await this.scrpNg.scraper_ng_Get_HTMLResponse();
-      this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(dom);
+
+
+      const domNative =await this.scrpNg.scraper_ng_GetNative_HTLMResponse();
+    //  const dom = await this.scrpNg.scraper_ng_Get_HTMLResponse();
+    //  this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(dom);
+      this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(domNative);
     });
   }
 }

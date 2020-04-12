@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GlobalPipesModule } from './pipes/globals/global-pipes.module';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   entryComponents: [],
   imports: [GlobalPipesModule, HttpClientModule , MdlGlobalModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    HTTP,
     InAppBrowser,
     StatusBar,
     SplashScreen,
