@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title><app-cmp-mx-fase></app-cmp-mx-fase></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,8 +17,8 @@
   <ion-list class="ion-padding">
 
       <ion-item lines='full'>
-        <ion-label > Estado </ion-label>
-        <ion-label class="ion-text-end"> Casos </ion-label>
+        <ion-label > <b>Estado</b> </ion-label>
+        <ion-label class="ion-text-end"> <b>Casos</b>  </ion-label>
       </ion-item>
 
     <ion-item lines='full' *ngFor='let estado of commons.estadosMexico; let i = index'>

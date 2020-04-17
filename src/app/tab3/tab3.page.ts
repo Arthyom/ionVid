@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 export class Tab3Page implements OnInit {
 
   dataCountryCov : any[] = [];
-  dataCountryMon : any[] = []
+  dataCountryMon : any[] = [];
+
 
 
   constructor(
@@ -26,6 +27,8 @@ export class Tab3Page implements OnInit {
 
     this.dataCountryCov = await this.commons.commons_Get_AnyDataTipe( environment.urlCov+"statistics" , headerCov );
     this.dataCountryMon = await this.commons.commons_Get_AnyDataTipe( environment.urlMon+"cases_by_country.php"  , headerMon );
+
+
 
     console.log('data covid', this.dataCountryCov);
 

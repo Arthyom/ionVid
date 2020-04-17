@@ -1,15 +1,8 @@
-<ion-card>
-
-  <ion-label >
-    <ion-text color='colorTitulo'>
-      <h1> {{titulo}} </h1>
-    </ion-text>
-
-    <ion-text color='colorCifra'>
-      <h1> {{infoEnter}}</h1>
-    </ion-text>
-
-  </ion-label>
 
 
-</ion-card>
+      <ion-label>
+        <ion-text color='colorTitulo'>
+          <h3> {{titulo}} </h3>
+        </ion-text>
+
+      <ng2-odometer [number]='infoEnter' [animation]="'count'" [theme]="'plaza'" ></ng2-odometer>

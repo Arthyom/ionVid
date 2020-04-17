@@ -20,6 +20,30 @@ export class ScraperService {
 
   ) { }
 
+  scraper_ng_ParseByName( content: string, name: string ){
+    const domConverter = new DOMParser();
+    const parsedResponse = domConverter.parseFromString( content, 'text/html' );
+    const elementsBySingleTag = parsedResponse.getElementsByName(name);
+
+    console.log('elementos por nombre', elementsBySingleTag);
+  }
+
+  scraper_ng_ParseBySingleTag( content: string, tag: string ){
+    const domConverter = new DOMParser();
+    const parsedResponse = domConverter.parseFromString( content, 'text/html' );
+    const elementsBySingleTag = parsedResponse.getElementsByTagName(tag);
+
+    console.log('elementos por etiquiera', elementsBySingleTag);
+  }
+
+
+  scraper_ng_ParseBySingleClass( content: string, classId: string ){
+    const domConverter = new DOMParser();
+    const parsedResponse = domConverter.parseFromString( content, 'text/html' );
+    const elementsBySingleClass = parsedResponse.getElementsByClassName(classId);
+    return elementsBySingleClass[0].textContent;
+  }
+
   scraper_ng_ParseStrToHTMLTag( strSrc: string, tag : string = 'tr' ){
     let cells  = [];
 
@@ -66,7 +90,7 @@ export class ScraperService {
         if(data)
           resolve(data);
 
-              //      console.log('data conseguida', data);
+                    console.log('data conseguida', data);
 
       })
     });

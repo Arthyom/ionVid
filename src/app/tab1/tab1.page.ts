@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonsService } from '../services/commons.service';
 import { environment } from 'src/environments/environment';
+import { SplashComponent } from '../components/globals/splash/splash.component';
 
 @Component({
   selector: 'app-tab1',
@@ -13,6 +14,10 @@ export class Tab1Page implements OnInit {
   constructor(
     public commons: CommonsService
   ) {}
+
+  abrir(){
+    this.commons.common_Modal_Present( SplashComponent );
+  }
 
   async ngOnInit(){
 

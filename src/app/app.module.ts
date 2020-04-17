@@ -14,15 +14,23 @@ import { GlobalPipesModule } from './pipes/globals/global-pipes.module';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
+import { ChartsModule } from 'ng2-charts';
+
+import { Ng2OdometerModule } from 'ng2-odometer'; // <-- import the module
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
+
+
 
 
 @NgModule({
   declarations: [AppComponent],
-  exports: [MdlGlobalModule, GlobalPipesModule],
+  exports: [ NgCircleProgressModule,Ng2OdometerModule, MdlGlobalModule, GlobalPipesModule],
   entryComponents: [],
-  imports: [GlobalPipesModule, HttpClientModule , MdlGlobalModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [   NgCircleProgressModule.forRoot(),Ng2OdometerModule.forRoot(), ChartsModule, GlobalPipesModule, HttpClientModule , MdlGlobalModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     HTTP,
+
     InAppBrowser,
     StatusBar,
     SplashScreen,

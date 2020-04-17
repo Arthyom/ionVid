@@ -10,12 +10,19 @@ import { CmpContryDetailsComponent } from '../cmp-contry-details/cmp-contry-deta
 export class CmpCardCountryComponent implements OnInit {
 
   @Input() dataCountry : any = {};
+  cargado = false;
 
   constructor(
     public commons: CommonsService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout( ()=> {this.cargado = true},  4000);
+  }
+
+  ionViewDidEnter(){
+    console.log('view en el listado de paises')
+  }
 
   abrirModal( c: any ){
     this.commons.common_Modal_Present( CmpContryDetailsComponent, {'country': c} )

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScraperService } from './services/scraper.service';
 import { CommonsService } from './services/commons.service';
+import { SplashComponent } from './components/globals/splash/splash.component';
 
 @Component({
   selector: 'app-root',
@@ -23,15 +24,25 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then( async() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.platform.ready().then( async(platformType) => {
 
+            this.statusBar.styleDefault();
+      let splash = this.commons.common_Modal_Present(SplashComponent);
 
-      const domNative =await this.scrpNg.scraper_ng_GetNative_HTLMResponse();
-    //  const dom = await this.scrpNg.scraper_ng_Get_HTMLResponse();
-    //  this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(dom);
-      this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(domNative);
+  
+
+      if( platformType === 'dom') {
+        const dom   = await this.scrpNg.scraper_ng_Get_HTMLResponse("https://www.razon.com.mx/mexico/coronavirus-en-mexico-casos-por-entidad-federativa-y-historico-de-casos-covid-19-muertes-secretaria-de-salud-en-que-fase-de-contingencia-esta-mexico/");
+        this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(dom);
+
+      }
+      else{
+        const domNative   = await this.scrpNg.scraper_ng_GetNative_HTLMResponse();
+        const phaseNative = await this.scrpNg.scraper_ng_GetNative_HTLMResponse('https://coronavirus.gob.mx/');
+
+        this.commons.estadosMexico = this.scrpNg.scraper_ng_ParseStrToHTMLTag(domNative);
+        this.commons.faseCovMX  = this.scrpNg.scraper_ng_ParseBySingleClass(phaseNative,'fase-1 menu-item menu-item-type-custom menu-item-object-custom menu-item-9411');
+      }
     });
   }
 }

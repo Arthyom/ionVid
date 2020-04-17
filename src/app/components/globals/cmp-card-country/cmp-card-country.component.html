@@ -1,4 +1,4 @@
-<ion-list class="ion-padding">
+<ion-list class="ion-padding" *ngIf='cargado'>
   <ion-item
 
   *ngFor='let c of dataCountry | slice:1; let i = index' detail (click)='abrirModal( c )'
@@ -10,5 +10,20 @@
     </ion-label>
 
     <ion-label class="ion-text-end"> {{c.cases}} casos </ion-label>
+  </ion-item>
+</ion-list>
+
+
+<ion-list class="ion-padding" *ngIf='!cargado'>
+  <ion-item
+
+  *ngFor='let c of dataCountry  let i = index' detail >
+    <ion-label >
+      <ion-text color='primary' class="ion-text-wrap" >
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-label>
+    <ion-label class="ion-text-end"> <ion-skeleton-text animated></ion-skeleton-text> </ion-label>
   </ion-item>
 </ion-list>

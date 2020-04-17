@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ModalController, PopoverController, NavController, NavParams, LoadingController } from '@ionic/angular';
+import { ModalController, PopoverController, NavController, NavParams, LoadingController, IonSlides } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { ChartDataSets } from 'chart.js';
 
 
 @Injectable({
@@ -10,7 +11,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export class CommonsService {
 
   public estadosMexico : any[] = [];
+  public faseCovMX : string;
+  public lineDataSetCasosTotales: ChartDataSets [] = [];
 
+  common_CurrentSlide: IonSlides;
   Common_CurrentModal: HTMLIonModalElement;
   global: HTMLIonLoadingElement;
 
@@ -23,6 +27,57 @@ export class CommonsService {
     private iab       : InAppBrowser
 
   ) { }
+
+  commons_GroupElements_ByDate( elementCollection : any[], dateStart: Date, dateEnd: Date ){
+    let filteredElements : number [] = [];
+
+    if(elementCollection !== undefined){
+
+      elementCollection.filter( (elemento) => {
+
+        let dateRecord:Date  = new Date( elemento.record_date.slice(0,10) );
+        if(  dateRecord > dateStart &&  dateEnd >= dateRecord  ){
+
+
+
+        //  console.log('dentro del rago', dateRecord);
+
+
+
+        //  this.lineDataSetCasosTotales.push( { label: 'Total', data: [Number( elemento.total_cases.replace(',','') )]} );
+
+        //  console.log('data metida', this.lineDataSetCasosTotales)
+
+          filteredElements.push( Number( elemento.total_cases.replace(',','') ) )
+        }
+
+
+      });
+
+      this.lineDataSetCasosTotales.push( {data: filteredElements, label:'Casos'} );
+
+      //console.log('dates conincidentes', this.lineDataSetCasosTotales);
+
+  }
+  }
+
+  Common_Slides_InitLockSlides( slideTarget: IonSlides ) {
+    this.common_CurrentSlide = slideTarget;
+    this.common_CurrentSlide.lockSwipes(true);
+  }
+
+
+  Common_Slides_MoveNext( slideTarget?: IonSlides ) {
+    this.common_CurrentSlide.lockSwipes(false);
+    this.common_CurrentSlide.slideNext();
+    this.common_CurrentSlide.lockSwipes(true);
+  }
+
+  Common_Slides_MoveBack( slideTarget?: IonSlides ) {
+    this.common_CurrentSlide.lockSwipes(false);
+    this.common_CurrentSlide.slidePrev();
+    this.common_CurrentSlide.lockSwipes(true);
+  }
 
   commons_iab_GoTo( targetURL: string ){
     this.iab.create(targetURL);

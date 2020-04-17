@@ -1,55 +1,84 @@
-<app-cmpclosemodalheader [titulo]='( (infoData.country_name | trasnName) | async ) || infoData.country_name '>
+<app-cmpclosemodalheader [adelante]='adelante' [regresar]='regresar' [titulo]='( (infoData.country_name | trasnName) | async ) || infoData.country_name '>
 </app-cmpclosemodalheader>
 
 <ion-content>
 
-  <ion-card>
+  <ion-label class="ion-padding">
+    {{infoContry.population | number }} Habitantes
+  </ion-label>
 
-    <ion-card-content>
-
-      <br>
-
-      <ion-label>
-        <h3>Casos totales</h3>
-        <p>{{ infoDataDate.total_cases }}</p>
-      </ion-label>
-
-      <br>
-
-      <ion-label>
-        <h3>Casos activos</h3>
-        <p>{{ infoDataDate.active_cases }}</p>
-      </ion-label>
-
-      <br>
-
-      <ion-label>
-        <h3>Fallecimientos totales</h3>
-        <p>{{ infoDataDate.total_deaths }}</p>
-      </ion-label>
-
-      <br>
-
-      <ion-label>
-        <h3>Recuperados</h3>
-        <p>{{ infoDataDate.total_recovered }}</p>
-      </ion-label>
-
-      <br>
-
-      <ion-label>
-        <h3>Casos criticos</h3>
-        <p>{{ infoDataDate.serious_critical }}</p>
-      </ion-label>
-
-      <br>
-
-    </ion-card-content>
+  <ion-slides >
 
 
+    <ion-slide #slide>
+
+      <ion-row>
+
+
+        <ion-col size='6' class="ion-no-padding">
+          <app-cmp-cad-circle
+          [poblacion]="getPercent(infoDataDate.total_deaths)"
+          [total]="infoDataDate.total_deaths"
+          [titulo]="'Fallecimientos'">
+          </app-cmp-cad-circle>
+        </ion-col>
+
+        <ion-col size='6' class="ion-no-padding">
+          <app-cmp-cad-circle
+          [poblacion]="getPercent(infoDataDate.total_recovered)"
+          [total]="infoDataDate.total_recovered"
+          [titulo]="'Recuperados'">
+          </app-cmp-cad-circle>
+        </ion-col>
+
+        <ion-col size='6' class="ion-no-padding">
+          <app-cmp-cad-circle
+          [poblacion]="getPercent(infoDataDate.serious_critical)"
+          [total]="infoDataDate.serious_critical"
+          [titulo]="'Criticos'">
+          </app-cmp-cad-circle>
+        </ion-col>
+
+        <ion-col size='6' class="ion-no-padding">
+          <app-cmp-cad-circle
+          [poblacion]="getPercent(infoDataDate.active_cases)"
+          [total]="infoDataDate.active_cases"
+          [titulo]="'Activos'">
+          </app-cmp-cad-circle>
+        </ion-col>
 
 
 
-  </ion-card>
+
+
+
+
+
+      </ion-row>
+
+
+
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-label>  <b> Historial</b> </ion-label>
+        </ion-list-header>
+
+        <ion-row>
+          <ion-col size = '12'>
+            <app-line-chart [lineChartData]='commons.lineDataSetCasosTotales'></app-line-chart>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+
+    </ion-slide>
+
+  </ion-slides>
+
+
 
 </ion-content>

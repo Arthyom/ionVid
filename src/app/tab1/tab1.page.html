@@ -8,36 +8,59 @@
 
 <ion-content [fullscreen]="true">
 
-  <app-cmpcard
-  [colorCifra] = "'danger'"
-  [titulo] = "'Casos Confirmados'"
-  [infoEnter] = 'worldStat.total_cases' >
-  </app-cmpcard>
+  <ion-grid>
+    <ion-row>
+      <ion-col size = '6'>
+        <app-cmpcard
+        [colorCifra] = "'danger'"
+        [titulo] = "'Casos Confirmados'"
+        [infoEnter] = 'worldStat.total_cases' >
+        </app-cmpcard>
+      </ion-col>
 
-  <app-cmpcard
-  [colorCifra] = "'danger'"
-  [titulo] = "'Muertos Confirmados'"
-  [infoEnter] = 'worldStat.total_deaths' >
-  </app-cmpcard>
+      <ion-col size = '6'>
+          <app-cmpcard
+          [colorCifra] = "'danger'"
+          [titulo] = "'Muertos Confirmados'"
+          [infoEnter] = 'worldStat.total_deaths' >
+          </app-cmpcard>
+      </ion-col>
 
-  <app-cmpcard
-  [colorTitulo]="primary"
-  [colorCifra] = "'danger'"
-  [titulo] = "'Total de Recuperados'"
-  [infoEnter] = 'worldStat.total_recovered' >
-  </app-cmpcard>
+      <ion-col size='6'>
+        <app-cmpcard
+        [colorTitulo]="primary"
+        [colorCifra] = "'danger'"
+        [titulo] = "'Total de Recuperados'"
+        [infoEnter] = 'worldStat.total_recovered' >
+        </app-cmpcard>
+      </ion-col>
 
-  <app-cmpcard
-  [colorCifra] = "'danger'"
-  [titulo] = "'Nuevos Casos'"
-  [infoEnter] = 'worldStat.new_cases' >
-  </app-cmpcard>
+      <ion-col size='6'>
+        <app-cmpcard
+        [colorCifra] = "'danger'"
+        [titulo] = "'Nuevos Casos'"
+        [infoEnter] = 'worldStat.new_cases' >
+        </app-cmpcard>
+      </ion-col>
 
-  <app-cmpcard
-  [colorCifra] = "'danger'"
-  [titulo] = "'Nuevas Muertes'"
-  [infoEnter] = 'worldStat.new_deaths' >
-  </app-cmpcard>
+      <ion-col size='12'>
+        <app-cmpcard
+        [colorCifra] = "'danger'"
+        [titulo] = "'Nuevas Muertes'"
+        [infoEnter] = 'worldStat.new_deaths' >
+        </app-cmpcard>
+      </ion-col>
+    </ion-row>
+
+    <ion-button (click)='abrir()'>
+      abtit modla
+    </ion-button>
+  </ion-grid>
+
+
+
+
+
 
 
 </ion-content>

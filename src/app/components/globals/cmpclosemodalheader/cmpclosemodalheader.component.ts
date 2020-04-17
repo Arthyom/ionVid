@@ -9,15 +9,32 @@ import { CommonsService } from 'src/app/services/commons.service';
 export class CmpclosemodalheaderComponent implements OnInit {
 
   @Input() titulo = '';
+  @Input() regresar = false;
+  @Input() adelante = true;
   constructor(
     private commons: CommonsService
-  ) { }
+  ) {
 
-  ngOnInit() {}
+
+  }
+
+  ngOnInit() {
+
+
+  }
+
 
   closeModal(){
     console.log('cerrando')
     this.commons.common_Modal_Dismiss();
+  }
+
+  moverAtras(){
+    this.commons.Common_Slides_MoveBack();
+  }
+
+  moverAdelante(){
+    this.commons.Common_Slides_MoveNext();
   }
 
 }
