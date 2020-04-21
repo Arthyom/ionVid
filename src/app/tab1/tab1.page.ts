@@ -11,6 +11,8 @@ import { SplashComponent } from '../components/globals/splash/splash.component';
 export class Tab1Page implements OnInit {
 
   worldStat: any = {};
+
+
   constructor(
     public commons: CommonsService
   ) {}

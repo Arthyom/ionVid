@@ -17,13 +17,15 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CmpCadCircleComponent } from './cmp-cad-circle/cmp-cad-circle.component';
 import { CmpMxFaseComponent } from './cmp-mx-fase/cmp-mx-fase.component';
 import { SplashComponent } from './splash/splash.component';
+import { CmpMultimediaSlidesComponent } from './cmp-multimedia-slides/cmp-multimedia-slides.component';
 
 
 @NgModule({
   entryComponents:[SplashComponent, CmpCadCircleComponent, CmpcountrydetailsComponent, CmpmapmexComponent, CmpContryDetailsComponent],
-  declarations: [ SplashComponent, CmpMxFaseComponent, CmpCadCircleComponent, CmpChartLineComponent, CmpcountrydetailsComponent, CmpclosemodalheaderComponent, CmpmapmexComponent, CmpContryDetailsComponent, CmpCardCountryComponent, CmpcardComponent, CmpVidFrameComponent ],
-  exports: [ SplashComponent, CmpMxFaseComponent, CmpCadCircleComponent, CmpChartLineComponent, CmpcountrydetailsComponent, CmpclosemodalheaderComponent,  CmpmapmexComponent, CmpContryDetailsComponent,  CmpCardCountryComponent, CmpVidFrameComponent, CmpcardComponent ],
+  declarations: [ CmpMultimediaSlidesComponent,SplashComponent, CmpMxFaseComponent, CmpCadCircleComponent, CmpChartLineComponent, CmpcountrydetailsComponent, CmpclosemodalheaderComponent, CmpmapmexComponent, CmpContryDetailsComponent, CmpCardCountryComponent, CmpcardComponent, CmpVidFrameComponent ],
+  exports: [ CmpMultimediaSlidesComponent, SplashComponent, CmpMxFaseComponent, CmpCadCircleComponent, CmpChartLineComponent, CmpcountrydetailsComponent, CmpclosemodalheaderComponent,  CmpmapmexComponent, CmpContryDetailsComponent,  CmpCardCountryComponent, CmpVidFrameComponent, CmpcardComponent ],
   imports: [
+    
     NgCircleProgressModule.forRoot(),
     Ng2OdometerModule.forRoot(),
     ChartsModule,

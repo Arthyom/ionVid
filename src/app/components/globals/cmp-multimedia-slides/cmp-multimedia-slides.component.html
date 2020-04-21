@@ -1,0 +1,35 @@
+<ion-slides pager='true' [options]='options'>
+
+  <ion-slide *ngFor='let url of urls'>
+
+    <ion-row>
+
+
+
+      <ion-col size='12' >
+
+        <iframe *ngIf='url | isVideo'
+          width="90%"
+          height="90%" [src]="url | urlpipe"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+
+
+
+        <img     width="100%"  height="100%"  *ngIf='! (url | isVideo)' [src]="url | urlpipe"  >
+
+      </ion-col>
+
+    </ion-row>
+
+
+
+
+  </ion-slide>
+
+
+
+</ion-slides>

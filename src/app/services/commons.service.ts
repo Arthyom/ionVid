@@ -12,6 +12,13 @@ export class CommonsService {
 
   public estadosMexico : any[] = [];
   public faseCovMX : string;
+  public externalMediaLinks : string[] = [
+
+    'https://www.youtube.com/embed/IYehqeDAw0Y',
+    'https://www.youtube.com/embed/IYehqeDAw0Y',
+    'https://www.youtube.com/embed/IYehqeDAw0Y',
+
+  ];
   public lineDataSetCasosTotales: ChartDataSets [] = [];
 
   common_CurrentSlide: IonSlides;

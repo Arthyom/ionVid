@@ -28,12 +28,23 @@ export class ScraperService {
     console.log('elementos por nombre', elementsBySingleTag);
   }
 
+  scraper_ng_GetSrcFromImgArray( imgArr: HTMLCollectionOf<Element>  ){
+
+    let imgs : string [ ] = [];
+
+    for (let i = 0; i < imgArr.length; i++) {
+      imgs.push(imgArr[i]['src']) ;
+    }
+
+    return imgs;
+  }
+
   scraper_ng_ParseBySingleTag( content: string, tag: string ){
     const domConverter = new DOMParser();
     const parsedResponse = domConverter.parseFromString( content, 'text/html' );
     const elementsBySingleTag = parsedResponse.getElementsByTagName(tag);
 
-    console.log('elementos por etiquiera', elementsBySingleTag);
+    return this.scraper_ng_GetSrcFromImgArray(elementsBySingleTag);
   }
 
 
@@ -42,6 +53,13 @@ export class ScraperService {
     const parsedResponse = domConverter.parseFromString( content, 'text/html' );
     const elementsBySingleClass = parsedResponse.getElementsByClassName(classId);
     return elementsBySingleClass[0].textContent;
+  }
+
+  scraper_ng_ParseBySingleClassGeneral( content: string, classId: string ){
+    const domConverter = new DOMParser();
+    const parsedResponse = domConverter.parseFromString( content, 'text/html' );
+    const elementsBySingleClass = parsedResponse.getElementsByClassName(classId);
+    return elementsBySingleClass;
   }
 
   scraper_ng_ParseStrToHTMLTag( strSrc: string, tag : string = 'tr' ){
